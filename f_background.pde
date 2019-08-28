@@ -33,29 +33,16 @@ void drawPlain() {
 
 void drawStars() {
   drawPlain();
-
-  int starsX = ceil(width * 0.5);
-  int starsY = ceil(height * 0.5);
-  int starsWidth = ceil(width * 0.9);
-  int starsHeight = ceil(height * 0.9);
-
-  pushMatrix();
-  noStroke();
-  ellipseMode(RADIUS);
-  translate(starsX, starsY);
-
-  int starCount = ceil(random(200, 350));
+  int starCount = int(random(200, 350));
   for (int i = 0; i < starCount; i++) {
-    float starX = starsWidth * 0.5 * random(-0.9, 0.9);
-    float starY = starsHeight * 0.5 * random(-0.9, 0.9);
-    float starRadius = min(starsWidth, starsHeight) * 0.5 * random(0.0005, 0.005);
-    float starAlpha = 75 * (1 + random(-0.5, 0.5));
+    float starX = random(width);
+    float starY = random(height);
+    float starRadius = random(0.5,1.5);
+    float starAlpha = random(65,85);
     noStroke();
     fill(LightGrey, starAlpha);
     ellipse(starX, starY, starRadius, starRadius);
   }
-  popMatrix();
-  ellipseMode(DIAMETER);
 }
 
 void drawBlueUniverse() {
